@@ -8,7 +8,6 @@ import { UsersService } from '../services/users.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-
 export class LoginComponent implements OnInit {
 
   hide = true;
@@ -31,7 +30,7 @@ export class LoginComponent implements OnInit {
 
   login(){
     this.usersService.addUser(this.user);
-    this.myPromise.then((val) => this.router.navigate(['/dashboard']));
+    this.myPromise.then((val) => this.router.navigate(['/dashboard', { "logged": "true" }]));
   }
 
 }

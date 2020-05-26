@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from '../services/users.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs/internal/Observable';
+import { User } from '../models/User';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +12,11 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class DashboardComponent implements OnInit {
 
-  username = "Anonymous";
+  lastUser: User = {
+    username: "anonymous",
+    password: ""
+
+  };
 
   items: Observable<any[]>;
   constructor(private route: ActivatedRoute, private usersService: UsersService, private firestore: AngularFirestore){
@@ -19,16 +24,8 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    /*
-    if(this.route.snapshot.paramMap.get("username") != null){
-      this.username = this.route.snapshot.paramMap.get("username");
-    }
-    console.log("Usuarios almacenados en usersService:");
-    console.log(this.usersService.getUsers());
-    */
-    if(this.usersService.getLastUser().length > 0){
-      var lastUser = this.usersService.getLastUser();
-      this.username = lastUser[0].username;
+    if(this.route.snapshot.paramMap.get("logged") == "true"){
+      this.usersService.getLastUser().subscribe(lastUser => this.lastUser = lastUser[0])
     }
   }
 

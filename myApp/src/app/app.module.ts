@@ -23,13 +23,11 @@ import { AboutComponent } from './about/about.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabase, AngularFireList  } from 'angularfire2/database';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -58,19 +56,15 @@ import { environment } from 'src/environments/environment';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
-    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    AngularFireStorageModule, // imports firebase/storage only needed for storage features
-    AngularFireDatabaseModule
-
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule
   ],
   exports: [
     MatPaginatorModule,
     MatSortModule,
     ReactiveFormsModule,
   ],
-  providers: [AngularFireDatabase],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

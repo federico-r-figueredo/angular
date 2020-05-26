@@ -14,6 +14,11 @@ export class UsersService {
     return this.USERS;
   }
 
+  getLastUser(): User[] {
+    var len = this.USERS.length;
+    return this.USERS.slice((len - 1), (len));
+  }
+
   addUser(newUser) {
      this.USERS.push(newUser);
   }

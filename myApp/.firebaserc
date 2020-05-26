@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "wecare-sweden-e1939": {
+      "hosting": {
+        "myApp": [
+          "wecare-sweden-e1939"
+        ]
+      }
+    }
+  }
+}

@@ -33,7 +33,7 @@ export class LoginComponent {
       this.usersService.addUser(this.user);
       this.myPromise.then((val) => this.router.navigate(['/dashboard', { "logged": "aaa" }]));
     } else {
-      console.log("Inut values are null");
+      console.log("Input values are null");
     }
   }
 

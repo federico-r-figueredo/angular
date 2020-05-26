@@ -12,11 +12,7 @@ import { User } from '../models/User';
 })
 export class DashboardComponent implements OnInit {
 
-  lastUser: User = {
-    username: "anonymous",
-    password: ""
-
-  };
+  lastUser: User;
 
   items: Observable<any[]>;
   constructor(private route: ActivatedRoute, private usersService: UsersService, private firestore: AngularFirestore){
@@ -24,9 +20,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(this.route.snapshot.paramMap.get("logged") == "true"){
-      this.usersService.getLastUser().subscribe(lastUser => this.lastUser = lastUser[0])
-    }
+      this.usersService.getLastUser().subscribe(lastUser => this.lastUser = lastUser[0]);
   }
 
 }

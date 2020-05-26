@@ -7,7 +7,10 @@ import { Observable, of } from 'rxjs';
 })
 export class UsersService {
 
-  USERS: User[] = [];
+  USERS: User[] = [{
+    username: "anonymous",
+    password: ""
+  }];
 
   constructor() { }
 

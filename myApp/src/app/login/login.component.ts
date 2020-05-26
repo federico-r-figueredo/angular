@@ -8,7 +8,7 @@ import { UsersService } from '../services/users.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   hide = true;
 
@@ -17,20 +17,24 @@ export class LoginComponent implements OnInit {
     password: null
   }
 
-  constructor(private route: ActivatedRoute,private router: Router, private usersService: UsersService) { }
+  logged = false;
 
-  ngOnInit(): void {
-  }
+  constructor(private route: ActivatedRoute,private router: Router, private usersService: UsersService) { }
 
   myPromise = new Promise(function(resolve, reject){
     setTimeout(function(){
       resolve("Aproved!");
+      this.logged = true;
     }, 5000)
   });
 
   login(){
-    this.usersService.addUser(this.user);
-    this.myPromise.then((val) => this.router.navigate(['/dashboard', { "logged": "true" }]));
+    if(this.user.username != null && this.user.password){
+      this.usersService.addUser(this.user);
+      this.myPromise.then((val) => this.router.navigate(['/dashboard', { "logged": "aaa" }]));
+    } else {
+      console.log("Inut values are null");
+    }
   }
 
 }

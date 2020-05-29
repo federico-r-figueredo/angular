@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component'
-import { LoginComponent } from './login/login.component'
-import { ConfigurationComponent } from './configuration/configuration.component';
-import { AboutComponent } from './about/about.component';
-import { AuthGuard } from './auth.guard';
+import { DashboardComponent } from './shared/dashboard/dashboard.component'
+import { LoginComponent } from './shared/login/login.component'
+import { ConfigurationComponent } from './shared/configuration/configuration.component';
+import { AboutComponent } from './shared/about/about.component';
+import { AuthGuard } from './core/guard//auth.guard';
 
 const routes: Routes = [
   {path: '', component: DashboardComponent },

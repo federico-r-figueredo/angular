@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UsersService } from '../services/users.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs/internal/Observable';
-import { User } from '../models/User';
+import { UsersService } from 'src/app/core/services/users/users.service';
+import { User } from 'src/app/core/models/User';
 
 @Component({
   selector: 'app-dashboard',

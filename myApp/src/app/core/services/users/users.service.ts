@@ -8,7 +8,7 @@ import { Observable, of } from 'rxjs';
 export class UsersService {
 
   USERS: User[] = [{
-    username: "anonymous",
+    name: "anonymous",
     password: ""
   }];
 

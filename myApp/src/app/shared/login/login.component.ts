@@ -13,7 +13,7 @@ export class LoginComponent {
   hide = true;
 
   user: User = {
-    username: null,
+    name: null,
     password: null
   }
 
@@ -29,7 +29,7 @@ export class LoginComponent {
   });
 
   login(){
-    if(this.user.username != null && this.user.password){
+    if(this.user.name != null && this.user.password){
       this.usersService.addUser(this.user);
       this.myPromise.then((val) => this.router.navigate(['/dashboard']));
     } else {

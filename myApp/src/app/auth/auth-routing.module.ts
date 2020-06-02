@@ -5,9 +5,9 @@ import { LogoutComponent } from './shared/logout/logout.component';
 import { AuthGuard } from '../core/guard/auth.guard';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'logout', pathMatch: 'full', canActivate: [AuthGuard]},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'logout', component: LogoutComponent}
+  {path: 'logout', component: LogoutComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

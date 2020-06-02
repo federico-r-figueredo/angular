@@ -10,14 +10,21 @@ import { AuthApiService } from 'src/app/auth/core/services/auth-api.service';
 })
 
 export class DashboardComponent implements OnInit {
+  isLoggedIn = false;
   loggedUser: User = {
-    name: 'Anonymus',
-    password: null
+    name: undefined,
+    password: undefined
   };
   items: Observable<any[]>;
   constructor(private authApiService: AuthApiService){
   }
   ngOnInit(): void {
+    console.log(this.authApiService.loggedIn());
+    if(this.authApiService.loggedIn()){
+      this.isLoggedIn = true;
       this.authApiService.getLoggedUser().subscribe(loggedUser => this.loggedUser = loggedUser);
+    } else {
+      this.isLoggedIn = false;
+    }
   }
 }

@@ -1,5 +1,6 @@
 <div class="col-6 mx-auto mt-5">
   <mat-card class="text-center">
-    <mat-card-title class="my-3" >Welcome {{ loggedUser.name }}!</mat-card-title>
+    <mat-card-title *ngIf="isLoggedIn else elseBlock"  class="my-3" >Welcome {{ loggedUser.name }}!</mat-card-title>
+    <ng-template #elseBlock><mat-card-title class="my-3" >Welcome Anonymus!</mat-card-title></ng-template>
   </mat-card>
 </div>

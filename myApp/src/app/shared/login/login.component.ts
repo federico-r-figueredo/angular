@@ -8,26 +8,21 @@ import { UsersService } from 'src/app/core/services/users/users.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent {
-
   hide = true;
-
   user: User = {
     name: null,
     password: null
   }
-
   logged = false;
-
   constructor(private route: ActivatedRoute,private router: Router, private usersService: UsersService) { }
-
   myPromise = new Promise(function(resolve, reject){
     setTimeout(function(){
       resolve("Aproved!");
       this.logged = true;
     }, 5000)
   });
-
   login(){
     if(this.user.name != null && this.user.password){
       this.usersService.addUser(this.user);
@@ -36,5 +31,4 @@ export class LoginComponent {
       console.log("Input values are null");
     }
   }
-
 }

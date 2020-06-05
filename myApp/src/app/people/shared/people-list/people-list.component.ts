@@ -39,12 +39,13 @@ export class PeopleListComponent implements OnInit {
   }
 
   editPeople(person) {
-    this.router.navigateByUrl(`/people/details/${person.id}`);
+    this.router.navigate([`/people/details/${person.id}`]);
   }
 
   deletePeople(id){
     this.peopleService.deletePerson(id);
     this.populateTable();
+    this.dataSource.sort = this.sort;
   }
 
   applyFilter() {

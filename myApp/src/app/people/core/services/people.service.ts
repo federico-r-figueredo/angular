@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { People } from '../models/People';
 import { PEOPLE } from '../mock/mock-people';
 import { Observable, of } from 'rxjs';
-import { $ } from 'protractor';
 import { Router } from '@angular/router';
 
 @Injectable({

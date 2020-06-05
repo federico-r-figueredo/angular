@@ -8,10 +8,12 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import {MatTableModule} from '@angular/material/table';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { PeopleDetailsComponent } from './shared/people-details/people-details.component';
 import { PeopleAddComponent } from './shared/people-add/people-add.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [PeopleListComponent, PeopleDetailsComponent, PeopleAddComponent],
@@ -25,7 +27,9 @@ import { PeopleAddComponent } from './shared/people-add/people-add.component';
     MatButtonModule,
     MatIconModule,
     MatTableModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatPaginatorModule,
+    MatSortModule
   ]
 })
 

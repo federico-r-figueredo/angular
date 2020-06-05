@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 
 export class PeopleService {
   constructor(private router: Router) { }
-  getPeople(): Observable<People[]> {
-    return of(PEOPLE);
+  getPeople() {
+    return PEOPLE;
   }
   getPerson(id: number): Observable<People> {
     return of(PEOPLE.find(people => people.id === id));

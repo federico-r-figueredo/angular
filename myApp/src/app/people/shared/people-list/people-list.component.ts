@@ -3,6 +3,7 @@ import { People } from '../../core/models/People';
 import { PeopleService } from '../../core/services/people.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-people-list',
@@ -14,12 +15,12 @@ export class PeopleListComponent implements OnInit {
 
   PEOPLE: People[];
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'birthPlace', 'knownFor', 'actions'];
-  dataSource;
+  dataSource: MatTableDataSource<any>;
   searchKey: string;
 
-  constructor(private peopleService: PeopleService, private router: Router) { }
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  ngOnInit(): void {
+  constructor(private peopleService: PeopleService, private router: Router) {
     this.populateTable();
   }
 
@@ -28,8 +29,12 @@ export class PeopleListComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.PEOPLE);
   }
 
+  ngOnInit() {
+    this.dataSource.sort = this.sort;
+  }
+
   getPeople() {
-    this.peopleService.getPeople().subscribe(people => this.PEOPLE = people);
+    this.PEOPLE = this.peopleService.getPeople();
     console.log(this.PEOPLE);
   }
 
@@ -42,13 +47,16 @@ export class PeopleListComponent implements OnInit {
     this.populateTable();
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  applyFilter() {
+    this.dataSource.filter = this.searchKey.trim().toLowerCase();
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   onSearchClear() {
-
+    this.searchKey = '';
+    this.applyFilter();
   }
 
 }

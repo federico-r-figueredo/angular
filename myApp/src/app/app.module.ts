@@ -23,19 +23,13 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AppComponent } from './app.component';
 import { MainNavComponent } from './shared/main-nav/main-nav.component';
 import { DashboardComponent } from './shared/dashboard/dashboard.component';
-import { LoginComponent } from './shared/login/login.component';
-import { ConfigurationComponent } from './shared/configuration/configuration.component';
-import { AboutComponent } from './shared/about/about.component';
 import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
-    DashboardComponent,
-    LoginComponent,
-    ConfigurationComponent,
-    AboutComponent
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

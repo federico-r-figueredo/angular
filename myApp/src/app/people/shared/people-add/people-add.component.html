@@ -1,0 +1,41 @@
+<div class="col-6 mx-auto mt-5">
+  <mat-card class="text-center w-100">
+    <mat-card-title class="my-3" >Create</mat-card-title>
+    <form class="example-form mx-auto">
+      <table class="example-full-width mx-auto" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field appearance="fill" class="example-full-width mr-3">
+              <mat-label>Firstname</mat-label>
+              <input matInput appearance="fill" [(ngModel)]="person.firstName" name="firstName" placeholder="Ex. Alan">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="fill" class="example-full-width ml-3">
+              <mat-label>Lastname</mat-label>
+              <input matInput appearance="fill" [(ngModel)]="person.lastName" name="lastName" placeholder="Ex. Turing">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field appearance="fill" class="example-full-width mr-3">
+              <mat-label>Birth Place</mat-label>
+              <input matInput [(ngModel)]="person.birthPlace" name="birthPlace" placeholder="Ex. England">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="fill" class="example-full-width ml-3">
+              <mat-label>Known For</mat-label>
+              <input matInput [(ngModel)]="person.knownFor" name="knownFor" placeholder="Ex. Turing Machine">
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <button mat-raised-button class="my-2" color="primary" type="button" (click)="save()">
+        Save
+    </button>
+  </mat-card>
+</div>
+

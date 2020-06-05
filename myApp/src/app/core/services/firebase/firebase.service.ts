@@ -27,7 +27,7 @@ export class FirebaseService {
 
   patientList: AngularFireList<any>;
 
-   constructor(private db: AngularFireDatabase) {}
+  constructor(private db: AngularFireDatabase) {}
 
   getPatients(){
     this.patientList = this.db.list('/patients');
@@ -52,4 +52,5 @@ export class FirebaseService {
   deletePatient(key) {
     this.patientList.remove(key);
   }
+
 }

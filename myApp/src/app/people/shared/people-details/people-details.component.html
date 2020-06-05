@@ -1,0 +1,40 @@
+<div class="col-6 mx-auto mt-5">
+  <mat-card class="text-center w-100">
+    <mat-card-title class="my-3" >Details: {{ person.firstName }} {{ person.lastName }}</mat-card-title>
+    <form class="example-form mx-auto">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width mr-3">
+              <mat-label>Firstname</mat-label>
+              <input matInput [(ngModel)]="person.firstName" name="firstName" >
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width ml-3">
+              <mat-label>Lastname</mat-label>
+              <input matInput [(ngModel)]="person.lastName" name="lastName" >
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width mr-3">
+              <mat-label>Birth Place</mat-label>
+              <input matInput [(ngModel)]="person.birthPlace" name="birthPlace" >
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width ml-3">
+              <mat-label>Known For</mat-label>
+              <input matInput [(ngModel)]="person.knownFor" name="knownFor" >
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <button mat-raised-button class="my-2" color="primary" type="button" (click)="save()">
+        Save
+    </button>
+  </mat-card>
+</div>

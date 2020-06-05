@@ -1,0 +1,54 @@
+<div class="col-10 mx-auto mt-5">
+  <mat-card class="text-center mb-2 ">
+    <div class="example-container col-10 mx-auto">
+      <mat-card-title class="my-2" >People</mat-card-title>
+    </div>
+  </mat-card>
+  <button mat-raised-button class="ml-1" color="primary" type="button" routerLink="/people/create">
+    <mat-icon>add</mat-icon>
+    Create
+  </button>
+  <mat-form-field class="ml-3" floatLabel="never">
+    <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+    <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+        <mat-icon>close</mat-icon>
+      </button>
+  </mat-form-field>
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 w-100">
+    <ng-container matColumnDef="id" class="w-50">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-center w-40"> ID </th>
+      <td mat-cell *matCellDef="let person" class="text-center"> {{person.id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-center"> First Name </th>
+      <td mat-cell *matCellDef="let person" class="text-center"> {{person.firstName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-center"> Last Name </th>
+      <td mat-cell *matCellDef="let person" class="text-center"> {{person.lastName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="birthPlace">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-center"> Birth Place </th>
+      <td mat-cell *matCellDef="let person" class="text-center"> {{person.birthPlace}} </td>
+    </ng-container>
+    <ng-container matColumnDef="knownFor">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-center"> Known for </th>
+      <td mat-cell *matCellDef="let person" class="text-center"> {{person.knownFor}} </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef class="text-center"></th>
+      <td mat-cell *matCellDef="let person" class="text-center">
+        <button mat-raised-button class="ml-1" color="primary" type="button" (click)="editPeople(person)">
+          <mat-icon>add</mat-icon>
+            Edit
+        </button>
+        <button mat-raised-button class="ml-1" color="primary" type="button" (click)="deletePeople(person.id)">
+          <mat-icon>add</mat-icon>
+            Delete
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

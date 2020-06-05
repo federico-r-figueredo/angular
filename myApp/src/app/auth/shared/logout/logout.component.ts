@@ -7,6 +7,7 @@ import { AuthApiService } from '../../core/services/auth-api.service';
   templateUrl: './logout.component.html',
   styleUrls: ['./logout.component.sass']
 })
+
 export class LogoutComponent implements OnInit {
   constructor(private authApiService: AuthApiService, private router: Router) { }
   myPromise = new Promise(function(resolve){
